@@ -86,10 +86,18 @@ var Employees = React.createClass({
     });
   },
 
+  // persist state of input values for employee name until employee values are successfully saved 
    handleNameChange(e) {
     var newEmployee = this.state.employee;
     newEmployee.name = e.target.value;
     this.setState({employee: newEmployee});
+  },
+
+  // persist state of input values for employee email  until employee values are successfully saved 
+   handleEmailChange(e) {
+   var newEmployee = this.state.employee;
+   newEmployee.email = e.target.value;
+   this.setState({employee: newEmployee});  
   },
 
 });
