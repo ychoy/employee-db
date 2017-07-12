@@ -1,27 +1,33 @@
 var Employees = React.createClass({
 
-// pass employee object as prop to component 
-  getInitialState() {
-    return {
-      employee: this.props.employee
-    }
-  },
-
-	render() {
+  render: function() {
+    employees = this.props.employees.map( function(employee) {
+      return (
+        <tr key={employee.id}>
+          <td>{employee.name}</td>
+          <td>{employee.email}</td>
+          <td>{employee.manager ? '&#10004;' : ''}</td>
+        </tr>
+      );
+    });
     return (
-      <tr>
-        <td>{this.state.employee.name}</td>
-        <td>{this.state.employee.email}</td>
-        <td>{this.state.employee.manager ? '✔' : ''}</td>
-      </tr>
+      <div>
+        <h1>Employees</h1>
+        <div id="employees">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Manager</th>
+              </tr>
+            </thead>
+            <tbody>
+              {employees}
+            </tbody>
+          </table>
+        </div>
+      </div>
     );
   }
-
-// render Employee component 
-  render () {
-    employees = this.state.employees.map( function(employee) {
-      return (
-        <Employee employee={employee} key={employee.id} />
-      );
-   });
-};
+});
