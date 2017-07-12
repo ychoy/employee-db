@@ -1,5 +1,6 @@
-# Employee Management Tool
+# Employee Database Tool
 A tool for employees to add, edit, and delete employees. Admins can also promote/demote an employee. 
+
 ## Instructions to Run This Locally
 1. Git clone the repo
 2. ``` bundle ```
@@ -10,5 +11,5 @@ A tool for employees to add, edit, and delete employees. Admins can also promote
 * Rails 
 * SQLite
 * React.js
-
+* React-Rails 
 
