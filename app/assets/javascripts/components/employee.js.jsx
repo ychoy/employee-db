@@ -1,7 +1,8 @@
+// pass employee object as a prop to component 
 var Employee = React.createClass({
 	getInitialState() {
   	return {
-   		employee: this.props.employee // pass employee object as a prop to component 
+   		employee: this.props.employee, 
    		editMode: false,
    		errors: {}
    	}
