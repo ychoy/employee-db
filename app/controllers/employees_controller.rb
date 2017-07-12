@@ -17,7 +17,11 @@ class EmployeesController < ApplicationController
     end
   end
 
+  private
+	# set permitted parameters for employee model 
 
-
+  def employee_params
+    params.require(:employee).permit(:name, :email, :manager)
+  end
 end  
-
+        
