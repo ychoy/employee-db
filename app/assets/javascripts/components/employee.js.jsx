@@ -67,9 +67,9 @@ var Employee = React.createClass({
         that.props.onFireEmployee(that.state.employee);
       }
     })
-  }
+  },
 
-  render() {
+  render () {
     if ( this.state.editMode ) {
       markup = (
         <tr>

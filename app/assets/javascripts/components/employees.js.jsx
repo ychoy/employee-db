@@ -63,14 +63,15 @@ var Employees = React.createClass({
     var newEmployee = this.state.employee;
     newEmployee.manager = e.target.value;
     this.setState({employee: newEmployee});
-  }
+  },
+  
   // call prop method onFireEmployee on successful deleted employee
   handleFireEmployee(employee) {
     var employeeList = this.state.employees.filter(function(item) {
       return employee.id !== item.id;
     });
     this.setState({employees: employeeList});
-  }
+  },
 
 	render() {
     var that = this;
