@@ -57,6 +57,17 @@ var Employee = React.createClass({
     });
   },
 
+  handleEmployeeFire() {
+    var that = this;
+    $.ajax({
+      method: 'DELETE', 
+      url: '/employees/' + that.state.employee.id + '.json',
+      success: function(res) {
+        that.props.onFireEmployee(that.state.employee);
+      }
+    })
+  }
+
   render() {
     if ( this.state.editMode ) {
       markup = (
@@ -96,6 +107,7 @@ var Employee = React.createClass({
           <td>
             <button onClick={this.setEditMode}>Edit</button>
             <button onClick={this.toggleManagerStatus}>{this.state.employee.manager ? 'Demote' : 'Promote'}</button>
+            <button onClick={this.handleEmployeeFire} style={{color: 'red'}} >Fire</button> 
           </td>
         </tr>
       );
