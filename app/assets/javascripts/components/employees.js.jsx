@@ -16,7 +16,7 @@ var Employees = React.createClass({
   render () {
     employees = this.state.employees.map( function(employee) {
       return (
-        <Employee employee={employee} key={employee.id} />
+        <Employee employee={employee} key={employee.id} onFireEmployee= {tha.handleFireEmployee}/>
  				<tbody>
         {employees}
         <tr>
@@ -105,5 +105,12 @@ var Employees = React.createClass({
     var newEmployee = this.state.employee;
     newEmployee.manager = e.target.value;
     this.setState({employee: newEmployee});
+  }
+  // call prop method onFireEmployee on successful deleted employee
+  handleFireEmployee(employee) {
+    var employeeList = this.state.employees.filter(function(item) {
+      return employee.id !== item.id;
+    });
+    this.setState({employees: employeeList});
   }
 });
