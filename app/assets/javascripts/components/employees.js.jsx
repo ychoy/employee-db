@@ -54,4 +54,37 @@ var Employees = React.createClass({
       </div>
     );
   }
+
+	// handleHireEmployee method is called when Hire button is clicked 
+	// when clicked, makes an AJAX call to create action for employees 
+	// with values set in the employee object 
+ 
+	 handleHireEmployee() {
+    var that = this;
+    $.ajax({
+      method: 'POST',
+      data: {
+        employee: that.state.employee,
+      },
+      url: '/employees.json',
+      success: function(res) {
+        var newEmployeeList = that.state.employees;
+        newEmployeeList.push(res);
+        that.setState({
+          employees: newEmployeeList,
+          employee: {
+            name: '',
+            email: '',
+            manager: false
+          },
+          errors: {}
+        });
+      },
+      error: function(res) {
+        that.setState({errors: res.responseJSON.errors})
+      }
+    });
+  },
+
+
 });
