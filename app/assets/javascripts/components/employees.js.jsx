@@ -86,5 +86,10 @@ var Employees = React.createClass({
     });
   },
 
+   handleNameChange(e) {
+    var newEmployee = this.state.employee;
+    newEmployee.name = e.target.value;
+    this.setState({employee: newEmployee});
+  },
 
 });
