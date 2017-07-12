@@ -29,6 +29,13 @@ var Employee = React.createClass({
     this.setState({employee: newEmployee});
   },
 
+	toggleManagerStatus() {
+    var newEmployee = this.state.employee;
+    newEmployee.manager = !this.state.employee.manager; 
+    this.setState({employee: newEmployee});
+    this.handleEmployeeUpdate();
+  },
+	
 	handleEmployeeUpdate() {
     var that = this;
     $.ajax({
@@ -88,6 +95,7 @@ var Employee = React.createClass({
           <td>{this.state.employee.manager ? '✔' : ''}</td>
           <td>
             <button onClick={this.setEditMode}>Edit</button>
+            <button onClick={this.toggleManagerStatus}>{this.state.employee.manager ? 'Demote' : 'Promote'}</button>
           </td>
         </tr>
       );
